@@ -11,6 +11,7 @@ Source1:	%{name}.conf
 URL:		http://www.httrack.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	perl
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -36,24 +37,35 @@ dogrywaj±c na dysk lokalny jedynie ró¿nice pomiêdzy star± a now± ich
 wersj±.
 
 %package devel
-Summary:        HTTtack devel files
+Summary:        HTTtack header files
 Summary(pl):    Pliki nag³ówkowe HTTrack
 Group:          Development/Libraries
 Requires:       %{name} = %{version}
 
 %description devel
-Header files and libraries for developing applications that use
-HTTrack.
+Header files for developing applications that use HTTrack.
 
 %description devel -l pl
-Pliki nag³ówkowe i biblioteki konieczne do rozwoju aplikacji
-u¿ywaj±cych HTTrack.
+Pliki nag³ówkowe konieczne do rozwoju aplikacji u¿ywaj±cych HTTrack.
+
+%package static
+Summary:	Static httrack library
+Summary(pl):	Statyczna biblioteka httrack
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}
+
+%description static
+Static httrack library.
+
+%description static -l pl
+Statyczna biblioteka httrack.
 
 %prep
 %setup -q -n %{name}-%{version}.20
 
 %build
 rm -f missing
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -81,12 +93,16 @@ rm -rf $RPM_BUILD_ROOT
 %doc html templates README {greetings,history}.txt httrack-doc.html 
 %config(noreplace) %{_sysconfdir}/httrack.conf
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*.1*
-%attr(755,root,root) %{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/*.so.*.*.*
 %{_mandir}/man1/*
 
 %files devel
+%defattr(644,root,root,755)
 %doc libtest
-%attr(755,root,root) %{_libdir}/libhttrack
-%attr(755,root,root) %{_libdir}/libhttrack.a
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/*.so
+%{_libdir}/*.la
+%{_includedir}/httrack
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libhttrack.a
