@@ -24,12 +24,20 @@ link, as if you were viewing it online. HTTrack can also update an
 existing mirrored site, and resume interrupted downloads. HTTrack is
 fully configurable.
 
+%description -l pl
+HTTrack jest ³atw± w u¿yciu przegl±dark± offline. Pozwala na
+¶ci±gniêcie kopii serwera na dysk lokalny, wraz z tekstami i obrazkami.
+Program ten jest odpowiednikiem Teleporta(TM) pod Windows(TM).
+HTTrack umo¿liwia równie¿ uaktualnienie wcze¶niej ¶ci±gniêtych stron,
+dogrywaj±c na dysk lokalny jedynie ró¿nice pomiêdzy star± a now±
+ich wersj±.
+
 %prep
 %setup -q
 
 %build
 cd src
-./configure \
+%configure \
 	--prefix=%{_prefix} \
 	--etcdir=%{_sysconfdir} \
 	--zlib --dynamic \
