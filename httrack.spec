@@ -5,8 +5,6 @@ Version:	3.10
 Release:	2
 License:	GPL
 Group:		Applications/Networking
-Group(de):	Applikationen/Netzwerkwesen
-Group(pl):	Aplikacje/Sieciowe
 Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
 Source1:	%{name}.conf
 URL:		http://www.httrack.com/
