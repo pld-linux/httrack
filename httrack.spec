@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
+# Source0-md5:	f6462c17305699af210f13498616d5a6
 Source1:	%{name}.conf
 URL:		http://www.httrack.com/
 BuildRequires:	perl
