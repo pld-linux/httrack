@@ -10,7 +10,7 @@ Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
 Source1:	%{name}.conf
 URL:		http://www.httrack.com/
 BuildRequires:	libtool
-BuildRequires:	perl
+BuildRequires:	perl-base
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
