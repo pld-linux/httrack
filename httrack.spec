@@ -37,7 +37,7 @@ wersj±.
 
 %build
 cd src
-# do not use %configure
+# do not use %%configure
 ./configure \
 	--prefix=%{_prefix} \
 	--etcdir=%{_sysconfdir} \
@@ -54,8 +54,6 @@ install src/httrack $RPM_BUILD_ROOT%{_bindir}
 install src/libhttrack.* $RPM_BUILD_ROOT%{_libdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
 
-gzip -9nfr README *.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -64,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc HelpHtml httrack httrack-doc.html *.gz
+%doc HelpHtml httrack httrack-doc.html README *.txt
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*
 %config(noreplace) %{_sysconfdir}/httrack.conf
