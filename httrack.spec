@@ -37,7 +37,8 @@ ich wersj±.
 
 %build
 cd src
-%configure \
+# do not use %configure
+./configure \
 	--prefix=%{_prefix} \
 	--etcdir=%{_sysconfdir} \
 	--zlib --dynamic \
