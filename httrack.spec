@@ -61,7 +61,7 @@ Static httrack library.
 Statyczna biblioteka httrack.
 
 %package web
-Summary:	This package is a web frontend server to httrack
+Summary:	Web frontend server to httrack
 Summary(pl):	Graficzny interfejs do httrack przez przegl±darkê WWW
 Group:		Applications/Networking
 Requires:	%{name} = %{version}-%{release}
