@@ -2,7 +2,7 @@ Summary:	Great website copier for offline browsing
 Summary(pl):	Narzêdzie do ¶ci±gnia stron w celu przegl±dania offline
 Name:		httrack
 Version:	3.10
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
