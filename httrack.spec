@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc html templates README {greetings,history}.txt httrack-doc.html 
+%doc html templates README {greetings,history}.txt httrack-doc.html
 %config(noreplace) %{_sysconfdir}/httrack.conf
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*.so.*.*.*
