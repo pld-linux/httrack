@@ -2,15 +2,13 @@ Summary:	Great website copier for offline browsing
 Summary(pl):	Narzêdzie do ¶ci±gnia stron w celu przegl±dania offline
 Name:		httrack
 Version:	3.32
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
 # Source0-md5:	f35ae93da749b89c0c18ab50eb892c15
 Source1:	%{name}.conf
 URL:		http://www.httrack.com/
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	perl
 BuildRequires:	zlib-devel
@@ -60,6 +58,18 @@ Static httrack library.
 %description static -l pl
 Statyczna biblioteka httrack.
 
+%package web
+Summary:        This package is a web frontend server to httrack
+Summary(pl):   	Graficzny interfejs do httrack przez przegl±darkê www
+Group:          Applications/Networking
+Requires:       %{name} = %{version}
+
+%description web
+This package is a web frontend server to httrack.
+
+%description web -l pl
+Graficzny interfejs do httrack przez przegl±darkê www.
+
 %prep
 %setup -q -n %{name}-%{version}.03
 
@@ -86,11 +96,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc html templates README {greetings,history}.txt httrack-doc.html
+%doc templates README {greetings,history}.txt httrack-doc.html
+%doc html/templates html/images html/img html/*.html
 %config(noreplace) %{_sysconfdir}/httrack.conf
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/httrack
 %attr(755,root,root) %{_libdir}/*.so.*.*.*
-%{_mandir}/man1/*
+%{_mandir}/man1/httrack.1*
 
 %files devel
 %defattr(644,root,root,755)
@@ -102,3 +113,16 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libhttrack.a
+
+%files web
+%defattr(644,root,root,755)
+%{_mandir}/man1/htsserver.1*
+%{_mandir}/man1/webhttrack.1*
+%attr(755,root,root) %{_bindir}/webhttrack
+%attr(755,root,root) %{_bindir}/htsserver
+%{_datadir}/%{name}/lang/*
+%{_datadir}/%{name}/icons/*
+%{_datadir}/%{name}/lang.*
+%{_datadir}/%{name}/html/server/*
+%{_pixmapsdir}/%{name}.xpm
+%{_desktopdir}/*
