@@ -1,7 +1,8 @@
 Summary:	Great website copier for offline browsing
+Summary(pl):	Narzêdzie do ¶ci±gnia stron w celu przegl±dania offline
 Name:		httrack
 Version:	3.10
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Networking
 Group(de):	Applikationen/Netzwerkwesen
@@ -18,19 +19,20 @@ HTTrack is an easy-to-use offline browser utility. It allows you to
 download a World Wide website from the Internet to a local directory,
 building recursively all directories, getting html, images, and other
 files from the server to your computer. HTTrack arranges the original
-site's relative link-structure.Simply open a page of the "mirrored"
+site's relative link-structure. Simply open a page of the "mirrored"
 website in your browser, and you can browse the site from link to
 link, as if you were viewing it online. HTTrack can also update an
 existing mirrored site, and resume interrupted downloads. HTTrack is
 fully configurable.
 
 %description -l pl
-HTTrack jest ³atw± w u¿yciu przegl±dark± offline. Pozwala na
-¶ci±gniêcie kopii serwera na dysk lokalny, wraz z tekstami i obrazkami.
-Program ten jest odpowiednikiem Teleporta(TM) pod Windows(TM).
-HTTrack umo¿liwia równie¿ uaktualnienie wcze¶niej ¶ci±gniêtych stron,
-dogrywaj±c na dysk lokalny jedynie ró¿nice pomiêdzy star± a now±
-ich wersj±.
+HTTrack jest ³atwym w u¿yciu narzêdziem do przegl±dania offline.
+Pozwala na ¶ci±gniêcie kopii serwera na dysk lokalny, wraz z tekstami
+i obrazkami, aby móc je pó¼niej ogl±daæ przegl±dark± offline. Program
+ten jest odpowiednikiem Teleporta(TM) pod Windows(TM). HTTrack
+umo¿liwia równie¿ uaktualnienie wcze¶niej ¶ci±gniêtych stron,
+dogrywaj±c na dysk lokalny jedynie ró¿nice pomiêdzy star± a now± ich
+wersj±.
 
 %prep
 %setup -q
