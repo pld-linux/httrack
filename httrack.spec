@@ -37,10 +37,10 @@ dogrywaj±c na dysk lokalny jedynie ró¿nice pomiêdzy star± a now± ich
 wersj±.
 
 %package devel
-Summary:        HTTtack header files
-Summary(pl):    Pliki nag³ówkowe HTTrack
-Group:          Development/Libraries
-Requires:       %{name} = %{version}
+Summary:	HTTtack header files
+Summary(pl):	Pliki nag³ówkowe HTTrack
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
 
 %description devel
 Header files for developing applications that use HTTrack.
