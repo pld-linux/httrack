@@ -9,6 +9,8 @@ Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
 # Source0-md5:	f35ae93da749b89c0c18ab50eb892c15
 Source1:	%{name}.conf
 URL:		http://www.httrack.com/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	zlib-devel
@@ -74,8 +76,11 @@ Graficzny interfejs do httrack przez przegl±darkê WWW.
 %setup -q -n %{name}-%{version}.03
 
 %build
-rm -f missing
 %{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 
@@ -89,6 +94,7 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
 
 rm -f {html,libtest,templates}/Makefile*
+rm -f $RPM_BUILD_ROOT%{_libdir}/httrack/lib*.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -98,18 +104,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc templates README {greetings,history}.txt httrack-doc.html
-%doc html/templates html/images html/img html/*.html
+%doc templates README greetings.txt history.txt httrack-doc.html
+%doc html/images html/img html/*.html
 %config(noreplace) %{_sysconfdir}/httrack.conf
 %attr(755,root,root) %{_bindir}/httrack
-%attr(755,root,root) %{_libdir}/*.so.*.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%dir %{_libdir}/httrack
+%attr(755,root,root) %{_libdir}/httrack/lib*.so*
 %{_mandir}/man1/httrack.1*
 
 %files devel
 %defattr(644,root,root,755)
 %doc libtest
-%attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/httrack
 
 %files static
