@@ -1,14 +1,16 @@
 Summary:	Great website copier for offline browsing
 Summary(pl):	Narzêdzie do ¶ci±gnia stron w celu przegl±dania offline
 Name:		httrack
-Version:	3.10
-Release:	3
+Version:	3.23
+Release:	0.1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
-# Source0-md5:	f6462c17305699af210f13498616d5a6
+# Source0-md5:	212d10681d207cdd7c84521a1fb5b17a
 Source1:	%{name}.conf
 URL:		http://www.httrack.com/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	perl
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,27 +35,40 @@ umo¿liwia równie¿ uaktualnienie wcze¶niej ¶ci±gniêtych stron,
 dogrywaj±c na dysk lokalny jedynie ró¿nice pomiêdzy star± a now± ich
 wersj±.
 
+%package devel
+Summary:        HTTtack devel files
+Summary(pl):    Pliki nag³ówkowe HTTrack
+Group:          Development/Libraries
+Requires:       %{name} = %{version}
+
+%description devel
+Header files and libraries for developing applications that use
+HTTrack.
+
+%description devel -l pl
+Pliki nag³ówkowe i biblioteki konieczne do rozwoju aplikacji
+u¿ywaj±cych HTTrack.
+
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}.20
 
 %build
-cd src
-# do not use %%configure
-./configure \
-	--prefix=%{_prefix} \
-	--etcdir=%{_sysconfdir} \
-	--zlib --dynamic \
-	--system=linux \
-	--pthread
-%{__make} CFLAGS="%{rpmcflags} -D_REENTRANT"
+rm -f missing
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_sysconfdir}}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
-install src/httrack $RPM_BUILD_ROOT%{_bindir}
-install src/libhttrack.* $RPM_BUILD_ROOT%{_libdir}
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
+
+rm -f {html,libtest,templates}/Makefile*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,7 +78,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc HelpHtml httrack httrack-doc.html README *.txt
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*
+%doc html templates README {greetings,history}.txt httrack-doc.html 
 %config(noreplace) %{_sysconfdir}/httrack.conf
+%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/*.1*
+%attr(755,root,root) %{_libdir}/*.la
+%{_mandir}/man1/*
+
+%files devel
+%doc libtest
+%attr(755,root,root) %{_libdir}/libhttrack
+%attr(755,root,root) %{_libdir}/libhttrack.a
+%{_includedir}/*
