@@ -2,7 +2,7 @@ Summary:	Great website copier for offline browsing
 Summary(pl):	Narzêdzie do ¶ci±gnia stron w celu przegl±dania offline
 Name:		httrack
 Version:	3.32
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
@@ -61,10 +61,10 @@ Static httrack library.
 Statyczna biblioteka httrack.
 
 %package web
-Summary:        This package is a web frontend server to httrack
-Summary(pl):   	Graficzny interfejs do httrack przez przegl±darkê WWW
-Group:          Applications/Networking
-Requires:       %{name} = %{version}-%{release}
+Summary:	This package is a web frontend server to httrack
+Summary(pl):	Graficzny interfejs do httrack przez przegl±darkê WWW
+Group:		Applications/Networking
+Requires:	%{name} = %{version}-%{release}
 
 %description web
 This package is a web frontend server to httrack.
@@ -95,6 +95,9 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
 
 rm -f {html,libtest,templates}/Makefile*
 rm -f $RPM_BUILD_ROOT%{_libdir}/httrack/lib*.{la,a}
+rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}/html
+mkdir $RPM_BUILD_ROOT%{_datadir}/%{name}/html
+mv -f $RPM_BUILD_ROOT%{_datadir}/doc/httrack/html/server $RPM_BUILD_ROOT%{_datadir}/%{name}/html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
