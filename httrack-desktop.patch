@@ -10,7 +10,7 @@
 -Name=Browse Mirrored Websites
 +Name=WebHTTrack Browser
  Comment=Browse Websites Mirrored by WebHTTrack
-+omment[pl]=Przeglądanie stron zmirrorowanych przez WebHTTracka
++Comment[pl]=Przeglądanie stron zmirrorowanych przez WebHTTracka
  Exec=webhttrack browse
  Icon=/usr/share/httrack/icons/webhttrack.xpm
  Terminal=false
