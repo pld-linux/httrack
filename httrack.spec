@@ -111,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc templates README greetings.txt history.txt httrack-doc.html
 %doc html/images html/img html/*.html
-%config(noreplace) %{_sysconfdir}/httrack.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httrack.conf
 %attr(755,root,root) %{_bindir}/httrack
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_libdir}/httrack
