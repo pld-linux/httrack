@@ -38,7 +38,7 @@ wersj±.
 Summary:	HTTtack header files
 Summary(pl):	Pliki nag³ówkowe HTTrack
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for developing applications that use HTTrack.
@@ -50,7 +50,7 @@ Pliki nag³ówkowe konieczne do rozwoju aplikacji u¿ywaj±cych HTTrack.
 Summary:	Static httrack library
 Summary(pl):	Statyczna biblioteka httrack
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static httrack library.
@@ -60,15 +60,15 @@ Statyczna biblioteka httrack.
 
 %package web
 Summary:        This package is a web frontend server to httrack
-Summary(pl):   	Graficzny interfejs do httrack przez przegl±darkê www
+Summary(pl):   	Graficzny interfejs do httrack przez przegl±darkê WWW
 Group:          Applications/Networking
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{version}-%{release}
 
 %description web
 This package is a web frontend server to httrack.
 
 %description web -l pl
-Graficzny interfejs do httrack przez przegl±darkê www.
+Graficzny interfejs do httrack przez przegl±darkê WWW.
 
 %prep
 %setup -q -n %{name}-%{version}.03
@@ -83,7 +83,9 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
 
 rm -f {html,libtest,templates}/Makefile*
@@ -116,13 +118,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files web
 %defattr(644,root,root,755)
-%{_mandir}/man1/htsserver.1*
-%{_mandir}/man1/webhttrack.1*
 %attr(755,root,root) %{_bindir}/webhttrack
 %attr(755,root,root) %{_bindir}/htsserver
-%{_datadir}/%{name}/lang/*
-%{_datadir}/%{name}/icons/*
-%{_datadir}/%{name}/lang.*
-%{_datadir}/%{name}/html/server/*
+%{_datadir}/%{name}
+%{_mandir}/man1/htsserver.1*
+%{_mandir}/man1/webhttrack.1*
 %{_pixmapsdir}/%{name}.xpm
 %{_desktopdir}/*
