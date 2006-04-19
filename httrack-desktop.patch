@@ -5,7 +5,8 @@
 +Encoding=UTF-8
  Version=1.0
  Type=Application
- Categories=Application;Network
+-Categories=Application;Network
++Categories=Network;
  Terminal=false
 -Name=Browse Mirrored Websites
 +Name=WebHTTrack Browser
@@ -21,7 +22,8 @@
 +Encoding=UTF-8
  Version=1.0
  Type=Application
- Categories=Application;Network
+-Categories=Application;Network
++Categories=Network;
  Terminal=false
  Name=WebHTTrack Website Copier
  Comment=Copy websites to your computer
