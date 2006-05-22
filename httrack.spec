@@ -1,12 +1,12 @@
 Summary:	Great website copier for offline browsing
 Summary(pl):	Narzêdzie do ¶ci±gania stron w celu ich przegl±dania offline
 Name:		httrack
-Version:	3.33
+Version:	3.40
 Release:	1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
-# Source0-md5:	d8b8fef0180ec0c6251fb47515f13410
+# Source0-md5:	0364c56ab1e5289935d4d3482d1b82cb
 Source1:	%{name}.conf
 Patch0:		%{name}-desktop.patch
 URL:		http://www.httrack.com/
@@ -74,7 +74,7 @@ This package is a web frontend server to httrack.
 Graficzny interfejs do httrack przez przegl±darkê WWW.
 
 %prep
-%setup -q -n %{name}-%{version}.15
+%setup -q -n %{name}-%{version}.3
 %patch0 -p1
 
 %build
@@ -98,8 +98,11 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}
 rm -f {html,libtest,templates}/Makefile*
 rm -f $RPM_BUILD_ROOT%{_libdir}/httrack/lib*.{la,a}
 rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}/html
+mv -f $RPM_BUILD_ROOT%{_datadir}/doc/httrack/history.txt $RPM_BUILD_ROOT%{_datadir}/%{name}/
+mv -f $RPM_BUILD_ROOT%{_datadir}/doc/httrack/httrack-doc.html $RPM_BUILD_ROOT%{_datadir}/%{name}/
 mkdir $RPM_BUILD_ROOT%{_datadir}/%{name}/html
-mv -f $RPM_BUILD_ROOT%{_datadir}/doc/httrack/html/server $RPM_BUILD_ROOT%{_datadir}/%{name}/html
+mv -f $RPM_BUILD_ROOT%{_datadir}/doc/httrack/html $RPM_BUILD_ROOT%{_datadir}/%{name}/html
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -110,13 +113,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc templates README greetings.txt history.txt httrack-doc.html
-%doc html/images html/img html/*.html
+%doc html/images html/img html/div html/*.html
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httrack.conf
 %attr(755,root,root) %{_bindir}/httrack
+%attr(755,root,root) %{_bindir}/proxytrack
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_libdir}/httrack
 %attr(755,root,root) %{_libdir}/httrack/lib*.so*
 %{_mandir}/man1/httrack.1*
+%{_mandir}/man1/proxytrack.1*
+
 
 %files devel
 %defattr(644,root,root,755)
