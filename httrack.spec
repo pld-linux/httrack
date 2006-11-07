@@ -143,4 +143,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/htsserver.1*
 %{_mandir}/man1/webhttrack.1*
 %{_pixmapsdir}/%{name}.xpm
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
