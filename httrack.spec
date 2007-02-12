@@ -1,5 +1,5 @@
 Summary:	Great website copier for offline browsing
-Summary(pl):	Narzêdzie do ¶ci±gania stron w celu ich przegl±dania offline
+Summary(pl.UTF-8):   NarzÄ™dzie do Å›ciÄ…gania stron w celu ich przeglÄ…dania offline
 Name:		httrack
 Version:	3.40
 Release:	1
@@ -28,50 +28,50 @@ link, as if you were viewing it online. HTTrack can also update an
 existing mirrored site, and resume interrupted downloads. HTTrack is
 fully configurable.
 
-%description -l pl
-HTTrack jest ³atwym w u¿yciu narzêdziem do przegl±dania offline.
-Pozwala na ¶ci±gniêcie kopii serwera na dysk lokalny, wraz z tekstami
-i obrazkami, aby móc je pó¼niej ogl±daæ przegl±dark± offline. Program
+%description -l pl.UTF-8
+HTTrack jest Å‚atwym w uÅ¼yciu narzÄ™dziem do przeglÄ…dania offline.
+Pozwala na Å›ciÄ…gniÄ™cie kopii serwera na dysk lokalny, wraz z tekstami
+i obrazkami, aby mÃ³c je pÃ³Åºniej oglÄ…daÄ‡ przeglÄ…darkÄ… offline. Program
 ten jest odpowiednikiem Teleporta(TM) pod Windows(TM). HTTrack
-umo¿liwia równie¿ uaktualnienie wcze¶niej ¶ci±gniêtych stron,
-dogrywaj±c na dysk lokalny jedynie ró¿nice pomiêdzy star± a now± ich
-wersj±.
+umoÅ¼liwia rÃ³wnieÅ¼ uaktualnienie wczeÅ›niej Å›ciÄ…gniÄ™tych stron,
+dogrywajÄ…c na dysk lokalny jedynie rÃ³Å¼nice pomiÄ™dzy starÄ… a nowÄ… ich
+wersjÄ….
 
 %package devel
 Summary:	HTTtack header files
-Summary(pl):	Pliki nag³ówkowe HTTrack
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe HTTrack
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for developing applications that use HTTrack.
 
-%description devel -l pl
-Pliki nag³ówkowe konieczne do rozwoju aplikacji u¿ywaj±cych HTTrack.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe konieczne do rozwoju aplikacji uÅ¼ywajÄ…cych HTTrack.
 
 %package static
 Summary:	Static httrack library
-Summary(pl):	Statyczna biblioteka httrack
+Summary(pl.UTF-8):   Statyczna biblioteka httrack
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static httrack library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka httrack.
 
 %package web
 Summary:	Web frontend server to httrack
-Summary(pl):	Graficzny interfejs do httrack przez przegl±darkê WWW
+Summary(pl.UTF-8):   Graficzny interfejs do httrack przez przeglÄ…darkÄ™ WWW
 Group:		Applications/Networking
 Requires:	%{name} = %{version}-%{release}
 
 %description web
 This package is a web frontend server to httrack.
 
-%description web -l pl
-Graficzny interfejs do httrack przez przegl±darkê WWW.
+%description web -l pl.UTF-8
+Graficzny interfejs do httrack przez przeglÄ…darkÄ™ WWW.
 
 %prep
 %setup -q -n %{name}-%{version}.3
