@@ -1,5 +1,5 @@
 Summary:	Great website copier for offline browsing
-Summary(pl.UTF-8):   Narzędzie do ściągania stron w celu ich przeglądania offline
+Summary(pl.UTF-8):	Narzędzie do ściągania stron w celu ich przeglądania offline
 Name:		httrack
 Version:	3.40
 Release:	1
@@ -39,7 +39,7 @@ wersją.
 
 %package devel
 Summary:	HTTtack header files
-Summary(pl.UTF-8):   Pliki nagłówkowe HTTrack
+Summary(pl.UTF-8):	Pliki nagłówkowe HTTrack
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -51,7 +51,7 @@ Pliki nagłówkowe konieczne do rozwoju aplikacji używających HTTrack.
 
 %package static
 Summary:	Static httrack library
-Summary(pl.UTF-8):   Statyczna biblioteka httrack
+Summary(pl.UTF-8):	Statyczna biblioteka httrack
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -63,7 +63,7 @@ Statyczna biblioteka httrack.
 
 %package web
 Summary:	Web frontend server to httrack
-Summary(pl.UTF-8):   Graficzny interfejs do httrack przez przeglądarkę WWW
+Summary(pl.UTF-8):	Graficzny interfejs do httrack przez przeglądarkę WWW
 Group:		Applications/Networking
 Requires:	%{name} = %{version}-%{release}
 
