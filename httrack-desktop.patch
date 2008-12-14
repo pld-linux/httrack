@@ -1,33 +1,23 @@
---- httrack-3.32.03/html/server/div/WebHTTrack-Websites.desktop~	2004-09-20 10:50:45.000000000 +0200
-+++ httrack-3.32.03/html/server/div/WebHTTrack-Websites.desktop	2004-09-20 10:50:45.000000000 +0200
-@@ -1,10 +1,12 @@
- [Desktop Entry]
-+Encoding=UTF-8
- Version=1.0
- Type=Application
--Categories=Application;Network
-+Categories=Network;
- Terminal=false
--Name=Browse Mirrored Websites
-+Name=WebHTTrack Browser
- Comment=Browse Websites Mirrored by WebHTTrack
-+Comment[pl]=Przeglądanie stron zmirrorowanych przez WebHTTracka
- Exec=webhttrack browse
- Icon=/usr/share/httrack/icons/webhttrack.xpm
- Terminal=false
---- httrack-3.32.03/html/server/div/WebHTTrack.desktop~	2004-09-20 10:50:46.000000000 +0200
-+++ httrack-3.32.03/html/server/div/WebHTTrack.desktop	2004-09-20 10:50:46.000000000 +0200
-@@ -1,10 +1,12 @@
- [Desktop Entry]
-+Encoding=UTF-8
- Version=1.0
- Type=Application
--Categories=Application;Network
-+Categories=Network;
+diff -ur httrack-3.43.2-orig/html/server/div/WebHTTrack.desktop httrack-3.43.2/html/server/div/WebHTTrack.desktop
+--- httrack-3.43.2-orig/html/server/div/WebHTTrack.desktop	2008-12-14 23:20:48.129100243 +0100
++++ httrack-3.43.2/html/server/div/WebHTTrack.desktop	2008-12-14 23:22:03.572291331 +0100
+@@ -6,5 +6,6 @@
  Terminal=false
  Name=WebHTTrack Website Copier
  Comment=Copy websites to your computer
 +Comment[pl]=Kopiowanie stron na lokalny komputer
  Exec=webhttrack
  Icon=/usr/share/httrack/icons/webhttrack.xpm
+diff -ur httrack-3.43.2-orig/html/server/div/WebHTTrack-Websites.desktop httrack-3.43.2/html/server/div/WebHTTrack-Websites.desktop
+--- httrack-3.43.2-orig/html/server/div/WebHTTrack-Websites.desktop	2008-12-14 23:20:48.129100243 +0100
++++ httrack-3.43.2/html/server/div/WebHTTrack-Websites.desktop	2008-12-14 23:23:04.276757599 +0100
+@@ -4,7 +4,7 @@
+ Type=Application
+ Categories=Network;
  Terminal=false
+-Name=Browse Mirrored Websites
+-Comment=Browse Websites Mirrored by WebHTTrack
++Name=WebHTTrack Browser
++Comment[pl]=Przeglądanie stron zmirrorowanych przez WebHTTracka
+ Exec=webhttrack browse
+ Icon=/usr/share/httrack/icons/webhttrack.xpm
