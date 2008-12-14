@@ -1,14 +1,17 @@
 Summary:	Great website copier for offline browsing
 Summary(pl.UTF-8):	Narzędzie do ściągania stron w celu ich przeglądania offline
 Name:		httrack
-Version:	3.40
+%define version_prefix  3.43
+%define version_suffix  2
+Version:	%{version_prefix}.%{version_suffix}
 Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://www.httrack.com/%{name}-%{version}.tar.gz
-# Source0-md5:	0364c56ab1e5289935d4d3482d1b82cb
+Source0:	http://www.httrack.com/%{name}-%{version_prefix}-%{version_suffix}.tar.gz
+# Source0-md5:	a6debc9fe8b7049e5de986357c7dadd8
 Source1:	%{name}.conf
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-libtest-makefile.patch
 URL:		http://www.httrack.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -74,8 +77,9 @@ This package is a web frontend server to httrack.
 Graficzny interfejs do httrack przez przeglądarkę WWW.
 
 %prep
-%setup -q -n %{name}-%{version}.3
+%setup -q -n %{name}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
