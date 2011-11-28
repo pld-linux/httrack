@@ -1,14 +1,15 @@
+#
+#  TODO:
+#  - fix automake
 Summary:	Great website copier for offline browsing
 Summary(pl.UTF-8):	Narzędzie do ściągania stron w celu ich przeglądania offline
 Name:		httrack
-%define version_prefix  3.43
-%define version_suffix  2
-Version:	%{version_prefix}.%{version_suffix}
+Version:	3.44.1
 Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://www.httrack.com/%{name}-%{version_prefix}-%{version_suffix}.tar.gz
-# Source0-md5:	a6debc9fe8b7049e5de986357c7dadd8
+Source0:	http://download.httrack.com/%{name}-%{version}.tar.gz
+# Source0-md5:	7aaf56913388adfdba506c346c2ca020
 Source1:	%{name}.conf
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-libtest-makefile.patch
@@ -86,9 +87,9 @@ Graficzny interfejs do httrack przez przeglądarkę WWW.
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
-%{__automake}
+#%{__automake}
 %configure
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -121,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httrack.conf
 %attr(755,root,root) %{_bindir}/httrack
 %attr(755,root,root) %{_bindir}/proxytrack
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*
 %dir %{_libdir}/httrack
 %attr(755,root,root) %{_libdir}/httrack/lib*.so*
 %{_mandir}/man1/httrack.1*
@@ -137,7 +138,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libhttrack.a
+%{_libdir}/lib*.a
 
 %files web
 %defattr(644,root,root,755)
