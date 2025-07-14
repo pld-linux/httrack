@@ -79,8 +79,8 @@ Graficzny interfejs do httrack przez przeglądarkę WWW.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__libtoolize}
